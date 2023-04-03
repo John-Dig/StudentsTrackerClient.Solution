@@ -1,0 +1,36 @@
+Students/Details view with:
+ - promotions received history
+ </logged in Coach>
+  - "Add Promotion" button
+    * calls modal with form for Coach (from dropdown?) and Date (default current timestamp?)
+    * checks local Belts object to find colors and stripes by id (Student.BeltId + 1)
+  </logged in Coach>
+
+Coaches/Details view  with:
+ - promotions given history
+ </logged in Coach>
+  - "Promote Student" button
+    * calls modal with form for Student and Date
+    * checks belt object, etc.
+  </logged in Coach>
+
+Create modal
+Edit modal
+Delete modal
+Login/Register combined modal
+
+pagination
+
+authentication
+
+github actions
+    on push/PR: build, test, deploy
+
+setup storage/db/server: Google? Aws? No Azure.
+
+
+Step by Step:
+1.
+2.
+3.
+4.
