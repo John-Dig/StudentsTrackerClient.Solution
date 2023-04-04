@@ -69,7 +69,7 @@ namespace TrackerClient.Controllers
         else
         {
           ModelState.AddModelError("", "There is something wrong with your email or username. Please try again.");
-          return RedirectToAction("Index", "Home");
+          return View("LoginError", model);
         }
       }
     }

@@ -72,6 +72,22 @@ body {
   margin-top: 100px;
 }
 
+button {
+  background-color: var(--button-default-color);
+  padding: 1rem 2rem;
+  color: white;
+}
+
+button.green {
+  background-color: var(--button-green)
+}
+button.yellow {
+  background-color: var(--button-yellow)
+}
+button.red {
+  background-color: var(--button-red)
+}
+
 header {
   position: absolute;
   top: 0;
@@ -379,17 +395,19 @@ form > .form-row, .info-row {
 }
 
 .floating-errors {
-  /* position: absolute;
-  top: 0;
+  position: absolute;
+  top: calc(var(--header-height) - 1rem);
   left: 50%;
-  transform: translateX(-50%); */
+  transform: translateX(-50%);
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background-color: rgb(64, 49, 49);
+  z-index: 1;
 }
 
 .error-list {
   color: red;
   padding: 0.5rem;
-  border: 1px solid black;
-  border-radius: 0.5rem;
 }
 
 .error-list > span {

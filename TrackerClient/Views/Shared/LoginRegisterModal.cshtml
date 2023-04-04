@@ -9,7 +9,9 @@
     <div class="modal-message">Register</div>
     @await Html.PartialAsync("RegisterForm", new RegisterViewModel())
   </div>
-  <div class="button-area">
-    <button onclick="hideModal('login-register-modal')">Cancel</button>
-  </div>
+    <div class="button-area">
+      <a href='@Url.Action("Index", "Home")'>
+        <button>Cancel</button>
+      </a>
+    </div>
 </div>

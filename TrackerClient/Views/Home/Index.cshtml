@@ -9,7 +9,9 @@
 {
     <ul id="home-student-list" class="student-list">
         @foreach (Student student in ViewBag.Students) {
-            <div>@student.FirstN @student.LastN</div>
+            <a href='@Url.Action("Details", "Students", new { id= @student.StudentId })'>
+                <div>@student.FirstN @student.LastN</div>
+            </a>
         }
     </ul>
 }
@@ -26,7 +28,9 @@ else
 {
     <ul id="home-coach-list" class="coach-list">
         @foreach (Coach coach in ViewBag.Coaches) {
-            <div>@coach.FirstN @coach.LastN</div>
+            <a href='@Url.Action("Details", "Coaches", new { id= @coach.CoachId })'>
+                <div>@coach.FirstN @coach.LastN</div>
+            </a>
         }
     </ul>
 }
