@@ -20,7 +20,8 @@ else
     <p>No students found.</p>
 }
 @if (User.Identity.IsAuthenticated) {
-    <button class="green">Create a new Student</button>
+    @await Html.PartialAsync("CreateStudentModal", new Student())
+    <button onclick="showModal('create-student-modal')" class="green">Create a new Student</button>
 }
 
 <h3>Coaches:</h3>
@@ -39,5 +40,6 @@ else
     <p>No students found.</p>
 }
 @if (User.Identity.IsAuthenticated) {
-    <button class="green">Create a new Coach</button>
+    @await Html.PartialAsync("CreateCoachModal", new Coach())
+    <button onclick="showModal('create-coach-modal')" class="green">Create a new Coach</button>
 }

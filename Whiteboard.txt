@@ -17,11 +17,8 @@ Coaches/Details view  with:
 Create modal
 Edit modal
 Delete modal
-Login/Register combined modal
 
 pagination
-
-authentication
 
 github actions
     on push/PR: build, test, deploy

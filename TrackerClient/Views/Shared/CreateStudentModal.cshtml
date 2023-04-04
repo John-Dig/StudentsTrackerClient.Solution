@@ -1,0 +1,29 @@
+@model TrackerClient.Models.Student
+
+<div id="create-student-modal" class="modal create-modal obscured hidden">
+  <div class="modal-message">New Student</div>
+  @using (Html.BeginForm("Create", "Students"))
+  {
+    <div class="form-row">
+      @Html.LabelFor(model => model.FirstN, "First Name")
+      @Html.TextBoxFor(model => model.FirstN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.LastN, "First Name")
+      @Html.TextBoxFor(model => model.LastN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.Email)
+      @Html.TextBoxFor(model => model.Email)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.EnrollmentDate, "Enrollment Date")
+      @Html.TextBoxFor(model => model.EnrollmentDate, new { @type = "date" })
+    </div>
+    <button class="green" type="submit">Add student</button>
+  }
+
+  <div class="button-area">
+    <button onclick="hideModal('create-student-modal')">Cancel</button>
+  </div>
+</div>

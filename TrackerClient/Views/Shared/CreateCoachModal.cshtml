@@ -1,0 +1,25 @@
+@model TrackerClient.Models.Coach
+
+<div id="create-coach-modal" class="modal create-modal obscured hidden">
+  <div class="modal-message">New Coach</div>
+  @using (Html.BeginForm("Create", "Coaches"))
+  {
+    <div class="form-row">
+      @Html.LabelFor(model => model.FirstN)
+      @Html.TextBoxFor(model => model.FirstN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.LastN)
+      @Html.TextBoxFor(model => model.LastN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.Email)
+      @Html.TextBoxFor(model => model.Email)
+    </div>
+    <button class="green" type="submit">Add coach</button>
+  }
+
+  <div class="button-area">
+    <button onclick="hideModal('create-coach-modal')">Cancel</button>
+  </div>
+</div>

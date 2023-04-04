@@ -58,6 +58,7 @@ a:hover {
 
 a {
   color: #7FB3D5;
+  text-decoration: none;
 }
 
 body {
@@ -73,9 +74,14 @@ body {
 }
 
 button {
-  background-color: var(--button-default-color);
+  background-color: var(--default-button-color);
   padding: 1rem 2rem;
   color: white;
+  border-radius: 5px;
+}
+
+input, select, textarea {
+  border-radius: 5px;
 }
 
 button.green {
@@ -227,7 +233,7 @@ div#footer {
   text-align: center;
 }
 
-.modal#create-modal{
+.modal.create-modal{
 	background-color: var(--create-bg-color);
 }
 
@@ -412,4 +418,8 @@ form > .form-row, .info-row {
 
 .error-list > span {
   font-weight: bold;
+}
+
+.student-grid {
+
 }
