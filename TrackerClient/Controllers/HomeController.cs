@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TrackerClient.Models;
+using TrackerClient.ViewModels;
 
 namespace TrackerClient.Controllers;
 
@@ -13,11 +14,27 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    public IActionResult RegisterIndex(RegisterViewModel registerError)
+    {
+        List<Student> students = Student.GetStudents();
+        List<Coach> coaches = Coach.GetCoaches();
+        ViewBag.Students = students;
+        ViewBag.Coaches = coaches;
+        if (registerError != null)
+        {
+            return  View(registerError);
+        } else {
+            return View();
+        }
+    }
+
     public IActionResult Index()
     {
         List<Student> students = Student.GetStudents();
         List<Coach> coaches = Coach.GetCoaches();
-        return View(new { studentModel = students, coachModel = coaches });
+        ViewBag.Students = students;
+        ViewBag.Coaches = coaches;
+        return View();
     }
 
     public IActionResult Privacy()

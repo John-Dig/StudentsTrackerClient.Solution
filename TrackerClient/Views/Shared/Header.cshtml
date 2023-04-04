@@ -1,1 +1,15 @@
-<header><h1>Student Tracker Client</h1></header>
+<header>
+  <h1>Student Tracker Client</h1>
+  <div id="header-button-area">
+    @if (User.Identity.IsAuthenticated) {
+        <p>logged in as <span class="highlighted">@User.Identity.Name</span></p>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <button type="submit" class="red">Log out</button>
+        }
+    } else {
+      @await Html.PartialAsync("LoginRegisterModal")
+      <button onclick="showModal('login-register-modal')" class="green">Log in / Register</button>  
+    }
+  </div>
+</header>

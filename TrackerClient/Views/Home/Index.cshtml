@@ -4,25 +4,30 @@
 
 @using TrackerClient.Models
 
+@if(!ViewData.ModelState.IsValid) 
+{
+    @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "error-list"}) 
+}
+
 <h3>Students:</h3>
-@if (Model.studentModel.Count != 0)
+@if (ViewBag.Students.Count != 0)
 {
     <ul id="home-student-list" class="student-list">
-        @foreach (Student student in Model.studentModel) {
+        @foreach (Student student in ViewBag.Students) {
             <div>@student.FirstN @student.LastN</div>
         }
     </ul>
 }
 else 
 {
-    <p>No students found.</p> 
+    <p>No students found.</p>
 }
 
 <h3>Coaches:</h3>
-@if (Model.coachModel.Count != 0)
+@if (ViewBag.Coaches.Count != 0)
 {
     <ul id="home-coach-list" class="coach-list">
-        @foreach (Coach coach in Model.coachModel) {
+        @foreach (Coach coach in ViewBag.Coaches) {
             <div>@coach.FirstN @coach.LastN</div>
         }
     </ul>

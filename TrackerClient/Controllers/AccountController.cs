@@ -23,7 +23,7 @@ namespace TrackerClient.Controllers
     {
       if (!ModelState.IsValid)
       {
-        return RedirectToAction("Index", "Account");
+        return RedirectToAction("Index", "Home", new { errorModel = model });
       }
       else
       {
@@ -38,7 +38,7 @@ namespace TrackerClient.Controllers
           }
           else
           {
-            return RedirectToAction("Index", "Account");
+            return RedirectToAction("Index", "Home");
           }
         }
         else
@@ -47,7 +47,7 @@ namespace TrackerClient.Controllers
           {
             ModelState.AddModelError("", error.Description);
           }
-          return View();
+            return RedirectToAction("Index", "Home");
         }
       }
     }
@@ -57,7 +57,7 @@ namespace TrackerClient.Controllers
     {
       if (!ModelState.IsValid)
       {
-        return RedirectToAction("Index", "Account");
+        return RedirectToAction("Index", "Home");
       }
       else
       {
@@ -69,7 +69,7 @@ namespace TrackerClient.Controllers
         else
         {
           ModelState.AddModelError("", "There is something wrong with your email or username. Please try again.");
-          return RedirectToAction("Index", "Account");
+          return RedirectToAction("Index", "Home");
         }
       }
     }
