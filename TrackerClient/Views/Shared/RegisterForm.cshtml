@@ -14,5 +14,13 @@
     @Html.LabelFor(user=> user.ConfirmPassword)
     @Html.EditorFor(user=> user.ConfirmPassword)
   </div>
+  @if (ViewData.ModelState.IsValid)
+  {
+    <div>hi, this is valid</div>
+  }
+  else
+  {
+    <div>nope</div>
+  }
   <button class="yellow" type="submit">Register</button>
 }

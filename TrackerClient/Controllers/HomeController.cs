@@ -14,20 +14,6 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult RegisterIndex(RegisterViewModel registerError)
-    {
-        List<Student> students = Student.GetStudents();
-        List<Coach> coaches = Coach.GetCoaches();
-        ViewBag.Students = students;
-        ViewBag.Coaches = coaches;
-        if (registerError != null)
-        {
-            return  View(registerError);
-        } else {
-            return View();
-        }
-    }
-
     public IActionResult Index()
     {
         List<Student> students = Student.GetStudents();

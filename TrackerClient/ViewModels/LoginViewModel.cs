@@ -4,7 +4,7 @@ namespace TrackerClient.ViewModels
 {
   public class LoginViewModel
   {
-    [Required]
+    [Required(ErrorMessage = "Please add an email!")]
     [EmailAddress]
     [Display(Name = "Email Address")]
     public string Email { get; set; }

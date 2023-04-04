@@ -23,7 +23,7 @@ namespace TrackerClient.Controllers
     {
       if (!ModelState.IsValid)
       {
-        return RedirectToAction("Index", "Home", new { errorModel = model });
+        return View("RegisterError", model);
       }
       else
       {
@@ -57,7 +57,7 @@ namespace TrackerClient.Controllers
     {
       if (!ModelState.IsValid)
       {
-        return RedirectToAction("Index", "Home");
+        return View("LoginError", model);
       }
       else
       {

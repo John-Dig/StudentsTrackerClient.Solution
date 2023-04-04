@@ -4,11 +4,6 @@
 
 @using TrackerClient.Models
 
-@if(!ViewData.ModelState.IsValid) 
-{
-    @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "error-list"}) 
-}
-
 <h3>Students:</h3>
 @if (ViewBag.Students.Count != 0)
 {
@@ -21,6 +16,9 @@
 else 
 {
     <p>No students found.</p>
+}
+@if (User.Identity.IsAuthenticated) {
+    <button class="green">Create a new Student</button>
 }
 
 <h3>Coaches:</h3>
@@ -35,4 +33,7 @@ else
 else 
 {
     <p>No students found.</p>
+}
+@if (User.Identity.IsAuthenticated) {
+    <button class="green">Create a new Coach</button>
 }

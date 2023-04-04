@@ -1,0 +1,7 @@
+@model TrackerClient.ViewModels.RegisterViewModel
+<div class="floating-errors">
+  @Html.ValidationSummary("Please fix the following error(s) and then resubmit the form:", new { @class = "error-list"})
+  <div class="button-area">
+    <button onclick="showModal('login-register-modal')" class="green">Try again</button>
+  </div>
+</div>
