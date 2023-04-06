@@ -11,6 +11,7 @@ const showModal = async modalId => {
   });
 }
 const hideModal = async modalId => {
+  console.log('hiding', modalId)
   document.body.classList.remove('veiled');
   document.getElementById(`${modalId}`).classList.add('obscured');
   await pause(300);

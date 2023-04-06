@@ -27,7 +27,7 @@
      @await Html.PartialAsync("DeleteStudentModal", @Model)
     <button onclick="showModal('delete-student-modal')" class="red">Delete</button>
 
-     @await Html.PartialAsync("DeleteStudentModal", @Model)
-    <button onclick="showModal('delete-student-modal')" class="orange">Promote Student</button>
+     @* @await Html.PartialAsync("AddPromotionModal", @Model) *@
+    <button onclick="showModal('promote-student-modal')" class="orange">Promote Student</button>
   }
 </div>

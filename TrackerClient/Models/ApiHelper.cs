@@ -23,12 +23,21 @@ namespace TrackerClient.Models
       return response.Content;
     }
 
-    public static async void Post(string newPerson, string modelType)
+    public static async void Post(string newObject, string modelType)
     {
       RestClient client = new RestClient("http://localhost:5288/");
       RestRequest request = new RestRequest($"api/{modelType}", Method.Post);
       request.AddHeader("Content-Type", "application/json");
-      request.AddJsonBody(newPerson);
+      request.AddJsonBody(newObject);
+      await client.PostAsync(request);
+    }
+    public static async void PostPromotion(string newPromotion)
+    {
+      RestClient client = new RestClient("http://localhost:5288/");
+      RestRequest request = new RestRequest($"api/promotions", Method.Post);
+      request.AddHeader("Content-Type", "application/json");
+
+      request.AddJsonBody(newPromotion);
       await client.PostAsync(request);
     }
 

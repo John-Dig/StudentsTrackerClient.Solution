@@ -51,7 +51,7 @@ public class Promotion
     {
       string jsonPromotion = JsonConvert.SerializeObject(promotion);
       
-      ApiHelper.Post(jsonPromotion, "students");
+      ApiHelper.PostPromotion(jsonPromotion);
     }
   }
 
