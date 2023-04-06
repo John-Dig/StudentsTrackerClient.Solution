@@ -24,10 +24,10 @@
      @await Html.PartialAsync("DeleteStudentModal", @Model)
     <button onclick="showModal('delete-student-modal')" class="red">Delete</button>
 
-     @await Html.PartialAsync("DeleteStudentModal", @Model)
+     @await Html.PartialAsync("PromoteStudentModal", @Model)
     <button onclick="showModal('delete-student-modal')" class="orange">Promote Student</button>
   }
 </div>
-  <a href='@Url.Action("Index", "Adults")'>
-    <button>Back to list</button>
-  </a>
+<a href='@Url.Action("Index", "Adults")'>
+  <button>Back to list</button>
+</a>
