@@ -28,8 +28,80 @@ github actions
 setup storage/db/server: Google? Aws? No Azure.
 
 
-Step by Step:
-1.
-2.
-3.
-4.
+**** LATE WEDNESDAY CHANGES BY jd:
+
+basically duplicated students controller/ index and details to separate students (kids), from adults.  Just planning to render kids in students (beltId < 100)
+and adults (belts >= 100) in adults. For now.
+
+If for some reason I don't get up on time, other notes: I commented out stuff that's not working in the Api repo, and thats about it, other than Chris' comment that I'm 
+leaving in there.  below is just a backup if for some reason something happens to the database.  
+
+
++-----------+-------------+-----------+-----------------------------+--------+----------------------------+
+| StudentId | FirstN      | LastN     | Email                       | BeltId | DateEnrolled               |
++-----------+-------------+-----------+-----------------------------+--------+----------------------------+
+|         1 | John        | Doe       | JohnDoe@email.com           |    100 | 2023-04-05 09:22:42.000000 |
+|         2 | Martha      | Doe       | JaneDoe@email.com           |    109 | 0001-01-01 00:00:00.000000 |
+|         3 | Johnny      | Bravo     | JohnnyBravo@email.com       |    115 | 0069-03-17 00:00:00.000000 |
+|         4 | Samurai     | Jack      | SamuraiJack@email.com       |    107 | 2023-04-05 09:22:42.000000 |
+|         6 | SillyString | string    | string                      |    115 | 2023-03-03 21:12:11.317000 |
+|         7 | Buddy       | Guy       | guy@buddy.com               |    114 | 2023-04-05 16:12:55.040000 |
+|         8 | Bart        | Simpson   | balls@knob.com              |    112 | 0001-01-01 00:00:00.000000 |
+|         9 | James       | Swanson   | j@j.com                     |    101 | 0001-01-01 00:00:00.000000 |
+|        10 | Homerus     | Simpson   | reba@reba.com               |    113 | 0001-01-01 00:00:00.000000 |
+|        11 | Bobby       | Moses     | jimmy6@dlurb.com            |    103 | 0001-01-01 00:00:00.000000 |
+|        12 | dsa         | asd       | asd@asd.com                 |    103 | 0001-01-01 00:00:00.000000 |
+|        14 | Lou         | Barlow    | ase@msn.com                 |    122 | 0001-02-06 00:00:00.000000 |
+|        15 | Jesus       | Christ    | bob@jack.com                |    129 | 0001-01-01 00:00:00.000000 |
+|        18 | Holy        | Moly      | guy@guy.com                 |    104 | 0001-01-01 00:00:00.000000 |
+|        19 | dfgsf       | sdfgf     | dfgf@dfd.com                |    101 | 2021-01-01 00:00:00.000000 |
+|        20 | sugar       | cakes     | string@string.com           |    107 | 1980-04-17 00:00:00.000000 |
+|        22 | Mary        | Swanson   | m@m.com                     |    118 | 2029-04-16 00:00:00.000000 |
+|        23 | Oliver      | Wilson    | oliver@gmail.com            |     40 | 2017-04-11 00:00:00.000000 |
+|        24 | Mia         | Johnson   | mia@yahoo.com               |      3 | 2021-08-01 00:00:00.000000 |
+|        25 | Evelyn      | Brown     | evelyn@aol.com              |     19 | 2020-08-17 00:00:00.000000 |
+|        26 | William     | Jones     | william@gmail.com           |     58 | 2017-09-12 00:00:00.000000 |
+|        27 | Liam        | Garcia    | liam@yahoo.com              |     38 | 2018-08-15 00:00:00.000000 |
+|        28 | Emma        | Martinez  | emma@gmail.com              |      4 | 2020-07-14 00:00:00.000000 |
+|        29 | Ava         | Davis     | ava@instamail.com           |      2 | 2018-08-09 00:00:00.000000 |
+|        30 | Noah        | Smith     | noah@yahoo.com              |     44 | 2018-08-31 00:00:00.000000 |
+|        31 | Lucas       | Anderson  | lucas@gmail.com             |     58 | 2019-03-11 00:00:00.000000 |
+|        32 | Sophia      | Clark     | sophia@gmail.com            |     46 | 2016-09-05 00:00:00.000000 |
+|        33 | Emily       | Rodriguez | emily@instamail.com         |     14 | 2018-03-05 00:00:00.000000 |
+|        34 | Benjamin    | Lewis     | benjamin@yahoo.com          |     45 | 2021-03-25 00:00:00.000000 |
+|        35 | Mason       | Lee       | mason@gmail.com             |     55 | 2017-10-21 00:00:00.000000 |
+|        36 | Mila        | Walker    | mila@gmail.com              |     28 | 2021-03-23 00:00:00.000000 |
+|        37 | Ethan       | Hall      | ethan@instamail.com         |     40 | 2021-01-20 00:00:00.000000 |
+|        38 | Charlotte   | Allen     | charlotte@yahoo.com         |      1 | 2017-01-18 00:00:00.000000 |
+|        39 | Avery       | Green     | avery@gmail.com             |     21 | 2018-06-07 00:00:00.000000 |
+|        40 | Sophia      | Garcia    | sophia_garcia@yahoo.com     |      2 | 2020-11-19 00:00:00.000000 |
+|        41 | Michael     | Hernandez | michael.hernandez@gmail.com |     16 | 2021-02-03 00:00:00.000000 |
+|        42 | Avery       | Lopez     | avery.lopez@hotmail.com     |     15 | 2020-01-25 00:00:00.000000 |
+|        43 | Ethan       | Gonzalez  | ethan_gonzalez@yahoo.com    |      7 | 2018-06-12 00:00:00.000000 |
+|        44 | Charlotte   | King      | charlotte.king@gmail.com    |     13 | 2020-03-08 00:00:00.000000 |
+|        45 | Noah        | Wright    | noah.wright@yahoo.com       |     32 | 2018-10-15 00:00:00.000000 |
+|        46 | Emma        | Scott     | emma_scott@hotmail.com      |     11 | 2020-04-02 00:00:00.000000 |
+|        47 | Liam        | Adams     | liam.adams@gmail.com        |     30 | 2019-12-23 00:00:00.000000 |
+|        48 | Isabella    | Cruz      | isabella_cruz@hotmail.com   |      6 | 2021-01-31 00:00:00.000000 |
+|        49 | Mason       | Gonzalez  | mason_gonzalez@yahoo.com    |     24 | 2017-09-22 00:00:00.000000 |
+|        50 | Olivia      | Nelson    | olivia_nelson@hotmail.com   |     16 | 2019-02-08 00:00:00.000000 |
+|        51 | Lucas       | Parker    | lucas_parker@gmail.com      |     22 | 2017-11-30 00:00:00.000000 |
+|        52 | Ava         | Foster    | ava_foster@hotmail.com      |     28 | 2018-02-24 00:00:00.000000 |
+|        53 | Benjamin    | Barnes    | benjamin.barnes@yahoo.com   |     33 | 2017-12-11 00:00:00.000000 |
+|        54 | Emily       | Rivera    | emily_rivera@hotmail.com    |      8 | 2019-07-19 00:00:00.000000 |
+|        55 | Landon      | Gomez     | landon_gomez@yahoo.com      |     46 | 2017-08-12 00:00:00.000000 |
+|        56 | Madison     | Carter    | madison.carter@gmail.com    |     56 | 2018-05-29 00:00:00.000000 |
+|        57 | Jackson     | Perez     | jackson_perez@hotmail.com   |     14 | 2019-01-07 00:00:00.000000 |
+|        58 | Sophia      | Turner    | sophia.turner@gmail.com     |     34 | 2022-03-15 00:00:00.000000 |
+|        59 | Ethan       | Baker     | ethan_baker@hotmail.com     |     26 | 2018-06-22 00:00:00.000000 |
+|        60 | Avery       | Hall      | avery.hall@yahoo.com        |     15 | 2021-02-19 00:00:00.000000 |
+|        61 | Noah        | Flores    | noah_flores@hotmail.com     |     47 | 2017-10-08 00:00:00.000000 |
+|        62 | Olivia      | Gonzalez  | olivia.gonzalez@gmail.com   |      7 | 2022-11-02 00:00:00.000000 |
+|        63 | Lucas       | Nelson    | lucas_nelson@hotmail.com    |     22 | 2018-07-11 00:00:00.000000 |
+|        64 | Isabella    | Green     | isabella.green@yahoo.com    |     37 | 2019-04-28 00:00:00.000000 |
+|        65 | Liam        | Taylor    | liam.taylor@gmail.com       |     30 | 2021-09-05 00:00:00.000000 |
+|        66 | Emma        | Lee       | emma_lee@hotmail.com        |     11 | 2017-03-20 00:00:00.000000 |
+|        67 | Mason       | Cruz      | mason_cruz@yahoo.com        |     24 | 2019-06-18 00:00:00.000000 |
+|        68 | Ava         | Fisher    | ava.fisher@gmail.com        |     28 | 2020-09-23 00:00:00.000000 |
+|        69 | Benjamin    | Wright    | benjamin.wright@hotmail.com |     33 | 2016-11-12 00:00:00.000000 |
++-----------+-------------+-----------+-----------------------------+--------+----------------------------+
