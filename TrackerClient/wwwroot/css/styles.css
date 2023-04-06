@@ -2,6 +2,7 @@
 
 
 :root {
+  --actual-height: 100vh;
   --header-height: 4rem;
 
   --main-bg-color: #3c4256;
@@ -21,6 +22,8 @@
   --create-bg-color: rgb(70, 84, 63);
   --delete-bg-color: rgb(76, 64, 64);
   --edit-bg-color: rgb(76, 76, 64);
+
+  --border-radius: 0.5rem;
 }
 
 html {
@@ -71,6 +74,25 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
+  overflow-x: hidden;
+}
+
+body::after {
+	content: '';
+	position: fixed;
+  top: 0;
+  left: 0;
+	width: 100vw;
+	height: var(--actual-height);
+	background-color: rgb(0, 0, 0);
+	opacity: 0;
+	transition: opacity 300ms ease;
+	pointer-events: none;
+}
+
+body.veiled::after {
+	opacity: 0.75;
+	pointer-events: all;
 }
 
 button {
@@ -92,6 +114,9 @@ button.yellow {
 }
 button.red {
   background-color: var(--button-red)
+}
+button.orange {
+  background-color: rgb(183, 136, 48);
 }
 
 header {
@@ -178,23 +203,7 @@ div#footer {
 	padding: calc(var(--header-height) / 2);
 	z-index: 1;
 	border-radius: 1rem;
-  /* transition: transform 300ms ease, opacity 200ms ease; */
-}
-
-.confirm-image {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  width: 20rem;
-  height: 12rem;
-}
-
-.confirm-cat {
-  background-image: url(../img/confirmcat.png);
-}
-
-.confirm-dog {
-  background-image: url(../img/confirmdog.png);
+  transition: transform 300ms ease, opacity 200ms ease;
 }
 
 .error-messages {
@@ -216,12 +225,14 @@ div#footer {
 }
 
 .modal.obscured {
+  transition: none;
   transform: scale(0.95);
 	opacity: 0;
 	pointer-events: none;
 }
 
 .modal.hidden {
+  transition: none;
   display: none;
   z-index: -1;
 }
@@ -422,4 +433,14 @@ form > .form-row, .info-row {
 
 .student-grid {
 
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 2px solid black;
+  border-radius: var(--border-radius);
 }

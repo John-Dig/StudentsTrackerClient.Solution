@@ -23,21 +23,21 @@ namespace TrackerClient.Models
       return response.Content;
     }
 
-    public static async void Post(string newAnimal, string modelType)
+    public static async void Post(string newPerson, string modelType)
     {
       RestClient client = new RestClient("http://localhost:5288/");
       RestRequest request = new RestRequest($"api/{modelType}", Method.Post);
       request.AddHeader("Content-Type", "application/json");
-      request.AddJsonBody(newAnimal);
+      request.AddJsonBody(newPerson);
       await client.PostAsync(request);
     }
 
-    public static async void Put(int id, string newAnimal, string modelType)
+    public static async void Put(int id, string editedPerson, string modelType)
     {
       RestClient client = new RestClient("http://localhost:5288/");
       RestRequest request = new RestRequest($"api/{modelType}/{id}", Method.Put);
       request.AddHeader("Content-Type", "application/json");
-      request.AddJsonBody(newAnimal);
+      request.AddJsonBody(editedPerson);
       await client.PutAsync(request);
     }
 

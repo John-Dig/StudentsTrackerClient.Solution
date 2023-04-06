@@ -1,0 +1,16 @@
+@model TrackerClient.Models.Coach
+
+<div id="delete-coach-modal" class="modal delete-modal obscured hidden">
+  <div class="modal-message">
+    <div>Are you sure you want to delete coach <span class="highlighted">@Html.DisplayFor(model => model.FirstN) @Html.DisplayFor(model => model.LastN)</span>?</div>
+  </div>
+  <div class="button-area">
+    @using (Html.BeginForm("Delete", "Coaches", new { id = @Model.CoachId }))
+    {
+      <button class="red" type="submit">Delete</button>
+    }
+  </div>
+  <div class="button-area">
+    <button onclick="hideModal('delete-coach-modal')">Cancel</button>
+  </div>
+</div>

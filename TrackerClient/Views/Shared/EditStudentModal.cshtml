@@ -1,0 +1,34 @@
+@model TrackerClient.Models.Student
+
+<div id="edit-student-modal" class="modal edit-modal obscured hidden">
+  <div class="modal-message">Edit Student</div>
+  @using (Html.BeginForm("Edit", "Students"))
+  {
+    @Html.HiddenFor(model => model.StudentId)
+    <div class="form-row">
+      @Html.LabelFor(model => model.FirstN, "First Name")
+      @Html.EditorFor(model => model.FirstN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.LastN, "Last Name")
+      @Html.EditorFor(model => model.LastN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.Email)
+      @Html.EditorFor(model => model.Email)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.DateEnrolled, "Enrollment Date")
+      @Html.EditorFor(model => model.DateEnrolled)      
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.BeltId, "Belt ID")
+      @Html.EditorFor(model => model.BeltId, new { @type = "number" })
+    </div>
+    <button class="green" type="submit">Save changes</button>
+  }
+
+  <div class="button-area">
+    <button onclick="hideModal('edit-student-modal')">Cancel</button>
+  </div>
+</div>

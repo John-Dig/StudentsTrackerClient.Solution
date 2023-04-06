@@ -1,0 +1,35 @@
+@model TrackerClient.Models.Coach
+
+<div id="edit-coach-modal" class="modal edit-modal obscured hidden">
+  <div class="modal-message">Edit Coach</div>
+  
+  @using (Html.BeginForm("Edit", "Coaches"))
+  {
+    @Html.HiddenFor(model => model.CoachId)
+    <div class="form-row">
+      @Html.LabelFor(model => model.FirstN, "First Name")
+      @Html.EditorFor(model => model.FirstN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.LastN, "First Name")
+      @Html.EditorFor(model => model.LastN)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.Email)
+      @Html.EditorFor(model => model.Email)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.Phone, "Phone Number")
+      @Html.EditorFor(model => model.Phone)
+    </div>
+    <div class="form-row">
+      @Html.LabelFor(model => model.BeltId, "Belt ID")
+      @Html.EditorFor(model => model.BeltId, new { @type="number", @value=1 })
+    </div>
+    <button class="green" type="submit">Save changes</button>
+  }
+
+  <div class="button-area">
+    <button onclick="hideModal('edit-coach-modal')">Cancel</button>
+  </div>
+</div>

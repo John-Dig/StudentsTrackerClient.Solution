@@ -6,6 +6,13 @@ namespace TrackerClient.Controllers;
 
 public class StudentsController : Controller
 {
+
+    
+    public IActionResult Index()
+    {
+        List<Student> students = Student.GetStudents();
+        return View(students);
+    }
     public IActionResult Details(int id)
     {
         Student thisStudent = Student.GetDetails(id);
@@ -15,7 +22,22 @@ public class StudentsController : Controller
     [HttpPost]
     public IActionResult Create(Student student)
     {
+
         Student.Post(student);
+        return RedirectToAction("Index","Home");
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Student student)
+    {
+        Student.Put(student);
+        return RedirectToAction("Details","Students", new { id = student.StudentId });
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        Student.Delete(id);
         return RedirectToAction("Index","Home");
     }
 

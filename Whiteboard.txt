@@ -1,4 +1,4 @@
-Students/Details view with:
+**. Students/Details view with:
  - promotions received history
  </logged in Coach>
   - "Add Promotion" button
@@ -6,7 +6,7 @@ Students/Details view with:
     * checks local Belts object to find colors and stripes by id (Student.BeltId + 1)
   </logged in Coach>
 
-Coaches/Details view  with:
+**. Coaches/Details view  with:
  - promotions given history
  </logged in Coach>
   - "Promote Student" button
@@ -14,11 +14,13 @@ Coaches/Details view  with:
     * checks belt object, etc.
   </logged in Coach>
 
-Create modal
-Edit modal
-Delete modal
+**. show all students/coaches in tabular view
 
-pagination
+**. pagination
+
+**. role? coach/student/admin
+
+**.  host on aws/google cloud
 
 github actions
     on push/PR: build, test, deploy

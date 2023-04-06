@@ -6,17 +6,25 @@
 
 <h2>Details for Coach @Model.FirstN @Model.LastN</h2>
 
+<div class="details-list">
+  <div>@Html.LabelFor(model => model.CoachId, "ID"): @Html.DisplayFor(model => model.CoachId)</div>
+  <div>@Html.LabelFor(model => model.FirstN, "First Name"): @Html.DisplayFor(model => model.FirstN)</div>
+  <div>@Html.LabelFor(model => model.LastN, "Last Name"): @Html.DisplayFor(model => model.LastN)</div>
+  <div>@Html.LabelFor(model => model.Email): @Html.DisplayFor(model => model.Email)</div>
+  <div>@Html.LabelFor(model => model.Phone): @Html.DisplayFor(model => model.Phone)</div>
+  <div>@Html.LabelFor(model => model.BeltId, "Belt Id"): @Html.DisplayFor(model => model.BeltId)</div>
+</div>
 
 <div class="button-area">
-  <a href='@Url.Action("Index", "Home")'>
-    <button>Home</button>
+  <a href='@Url.Action("Index", "Coaches")'>
+    <button>Back to list</button>
   </a>
   @if (User.Identity.IsAuthenticated) {
-    <a href='@Url.Action("Edit", "Coaches", new { id = @Model.CoachId })'>
-      <button class="yellow">Edit</button>
-    </a>
-    <a href='@Url.Action("Delete", "Coaches", new { id = @Model.CoachId })'>
-      <button class="red">Delete</button>
-    </a>
+    
+    @await Html.PartialAsync("EditCoachModal", @Model)
+    <button onclick="showModal('edit-coach-modal')" class="yellow">Edit</button>
+    
+    @await Html.PartialAsync("DeleteCoachModal", @Model)
+    <button onclick="showModal('delete-coach-modal')" class="red">Delete</button>
   }
 </div>

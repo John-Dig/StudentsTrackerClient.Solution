@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrackerClient.Models
 {
@@ -12,8 +13,10 @@ namespace TrackerClient.Models
     public string FirstN { get; set; }
     public string LastN { get; set; }
     public string Email { get; set; }
-    public bool Adult { get; set; }
-    public DateTime EnrollmentDate { get; set; }
+
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:MMMM d, yyyy}", ApplyFormatInEditMode = false)]
+    public DateTime DateEnrolled { get; set; }
     public string BeltId { get; set; }
 
     public static List<Student> GetStudents()
