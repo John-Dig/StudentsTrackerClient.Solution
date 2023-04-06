@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TrackerClient.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+
 
 namespace TrackerClient.Controllers;
 
@@ -15,9 +18,15 @@ public class StudentsController : Controller
     }
     public IActionResult Details(int id)
     {
+        List<Coach> coaches = Coach.GetCoaches();
+        ViewBag.Coaches = new SelectList(coaches, "CoachId", "FirstN");
+
+             // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
+
         Student thisStudent = Student.GetDetails(id);
         return View(thisStudent);
-    }
+
+    } 
 
     [HttpPost]
     public IActionResult Create(Student student)

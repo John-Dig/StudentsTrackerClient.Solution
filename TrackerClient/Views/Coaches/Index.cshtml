@@ -3,7 +3,7 @@
 }
 
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @using TrackerClient.Models
@@ -12,24 +12,32 @@
 @if (Model.Count != 0)
 {
     <ul id="home-coach-list" class="coach-list">
-        @foreach (Coach coach in Model) {
-            <a href='@Url.Action("Details", "Coaches", new { id= @coach.CoachId })'>
-                <div>@coach.FirstN @coach.LastN</div>
-            </a>
+    @foreach (Coach coach in Model)
+        {
+            @if (int.Parse(coach.BeltId) >= 100)
+            {
+                <a href='@Url.Action("Details", "Coaches", new { id= @coach.CoachId })'>
+                    <div>
+                        <img src='@Url.Content("img/" + @coach.BeltId + ".jpg")' alt='@coach.BeltId' />
+                        @coach.FirstN @coach.LastN
+                    </div>
+                </a>
+            }
         }
     </ul>
 }
-else 
+else
 {
     <p>No students found.</p>
 }
 
 <div class="button-area">
-  <a href='@Url.Action("Index", "Home")'>
-    <button>Home</button>
-  </a>
-  @if (User.Identity.IsAuthenticated) {
-      @await Html.PartialAsync("CreateCoachModal", new Coach())
-      <button onclick="showModal('create-coach-modal')" class="green">Create a new Coach</button>
-  }
+    <a href='@Url.Action("Index", "Home")'>
+        <button>Home</button>
+    </a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @await Html.PartialAsync("CreateCoachModal", new Coach())
+        <button onclick="showModal('create-coach-modal')" class="green">Create a new Coach</button>
+    }
 </div>

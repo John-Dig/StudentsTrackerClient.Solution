@@ -19,32 +19,11 @@ public class PromotionsController : Controller
         return View(thisPromotion);
     }
 
-      // [Route("/api/promotions/create")]
-        [HttpPost]
-        public async Task<ActionResult<Promotion>> CreatePromotion(Student student, int coachId, DateTime promotionDate)
-        {
-            // #nullable enable
-            // Promotion? promotion = _context.Promotions.FirstOrDefault(join => (join.PromotionId == coachId && join.StudentId == student.StudentId));
-            // #nullable disable
-            // if (promotion == null)
-            // {
-                _context.Promotions.Add(new Promotion() { StudentId = student.StudentId, PromotionId = coachId, PromotionDate = promotionDate });
-                _context.SaveChanges();
-                List<Promotion> promotionsList = await _context.Promotions.ToListAsync();
-                Promotion mostRecentPromotion = promotionsList.Last();
-            // }
-
-//             rocking baby to sleep
-            // i listening
-            // does  api build ok ?
-            return CreatedAtAction("GetPromotion", new { id = mostRecentPromotion.PromotionId }, mostRecentPromotion);
-        }
-
     [HttpPost]
-    public IActionResult Create(Promotion promotion)
+    public IActionResult Create(int studentId, int coachId, DateTime promotionDate)
     {
-
-        Promotion.Post(promotion);
+        Promotion newPromotion = new Promotion() { StudentId = studentId, CoachId = coachId, PromotionDate = promotionDate };
+        Promotion.Post(newPromotion);
         return RedirectToAction("Index", "Home");
     }
 

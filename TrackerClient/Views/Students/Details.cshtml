@@ -4,14 +4,14 @@
 
 @model TrackerClient.Models.Student
 
-<h2>Details for Student @Model.FirstN @Model.LastN</h2>
+<h2>Details for Student N @Model.FirstN @Model.LastN</h2>
 
 <div class="details-list">
   <div>@Html.LabelFor(model => model.StudentId, "ID"): @Html.DisplayFor(model => model.StudentId)</div>
   <div>@Html.LabelFor(model => model.FirstN, "First Name"): @Html.DisplayFor(model => model.FirstN)</div>
   <div>@Html.LabelFor(model => model.LastN, "Last Name"): @Html.DisplayFor(model => model.LastN)</div>
   <div>@Html.LabelFor(model => model.Email): @Html.DisplayFor(model => model.Email)</div>
-  <div>@Html.LabelFor(model => model.BeltId, "Belt ID"): @Html.DisplayFor(model => model.BeltId)</div>
+  @* <div>@Html.LabelFor(model => model.BeltId, "Belt ID"): @Html.DisplayFor(model => model.BeltId)<img src='@Url.Content("img/" + @model.BeltId + ".png")' alt='model.BeltId' /></div> *@
   <div>@Html.LabelFor(model => model.DateEnrolled, "Date Enrolled"): @Html.DisplayFor(model => model.DateEnrolled)</div>
 </div>
 
@@ -27,7 +27,7 @@
      @await Html.PartialAsync("DeleteStudentModal", @Model)
     <button onclick="showModal('delete-student-modal')" class="red">Delete</button>
 
-     @* @await Html.PartialAsync("AddPromotionModal", @Model) *@
+    @await Html.PartialAsync("PromoteStudentModal", @Model)
     <button onclick="showModal('promote-student-modal')" class="orange">Promote Student</button>
   }
 </div>

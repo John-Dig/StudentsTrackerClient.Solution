@@ -1,0 +1,23 @@
+@model TrackerClient.Models.Student
+
+<div id="promote-student-modal" class="modal promote-modal obscured hidden">
+  <div class="modal-message">Promote Student @Model.FirstN @Model.LastN</div>
+  
+  @using (Html.BeginForm("Promote", "Students"))
+  {
+    <input hidden type="text" name="studentId" value=@Model.StudentId />
+
+    @Html.Label("Select Coach")
+    @Html.DropDownList("Coaches")
+
+    <div class="form-row">
+    @Html.TextBox("promotionDate", @DateTime.Now.ToString("mm/dd/yyyy"), new { @type = "date"})
+    </div>
+    
+    <button class="green" type="submit">Promote student</button>
+  }
+
+  <div class="button-area">
+    <button onclick="hideModal('promote-student-modal')">Cancel</button>
+  </div>
+</div>

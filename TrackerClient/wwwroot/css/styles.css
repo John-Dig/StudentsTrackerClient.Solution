@@ -30,6 +30,7 @@ img {
   max-width: 100%;
   height: auto;
   margin: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
 }
 html {
@@ -260,6 +261,9 @@ div#footer {
 
 .modal.edit-modal {
 	background-color: var(--edit-bg-color)
+}
+.modal.promote-modal {
+	background-color: rgb(35, 131, 117);
 }
 
 .modal#login-register-modal {

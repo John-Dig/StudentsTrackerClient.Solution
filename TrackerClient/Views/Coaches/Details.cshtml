@@ -24,7 +24,7 @@
     @await Html.PartialAsync("EditCoachModal", @Model)
     <button onclick="showModal('edit-coach-modal')" class="yellow">Edit</button>
     
-    @await Html.PartialAsync("DeleteCoachModal", @Model)
+    @await Html.PartialAsync("DeleteCoachModal", @Model, @ViewBag)
     <button onclick="showModal('delete-coach-modal')" class="red">Delete</button>
   }
 </div>

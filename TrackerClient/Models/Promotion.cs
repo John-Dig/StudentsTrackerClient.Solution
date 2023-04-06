@@ -35,16 +35,26 @@ public class Promotion
       return promotionList;
     }
 
-    public static List<Promotion> GetDetails(int studentId, int coachId)
+    // public static List<Promotion> GetPromotionsForPair(int studentId, int coachId)
+    // {
+    //   // var apiCallTask = ApiHelper.Get(id, "promotions");
+    //   // var result = apiCallTask.Result;
+
+    //   // JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+    //   // Promotion promotion = JsonConvert.DeserializeObject<Promotion>(jsonResponse.ToString());
+    //   List<Promotion> filteredList = GetAll().Where(x => x.StudentId == studentId && x.CoachId == coachId).ToList();
+
+    //   return filteredList;
+    // }
+    public static Promotion GetDetails(int id)
     {
-      // var apiCallTask = ApiHelper.Get(id, "promotions");
-      // var result = apiCallTask.Result;
+      var apiCallTask = ApiHelper.Get(id, "promotions");
+      var result = apiCallTask.Result;
 
-      // JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-      // Promotion promotion = JsonConvert.DeserializeObject<Promotion>(jsonResponse.ToString());
-      List<Promotion> filteredList = GetAll().Where(x => x.StudentId == studentId && x.CoachId == coachId).ToList();
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Promotion promotion = JsonConvert.DeserializeObject<Promotion>(jsonResponse.ToString());
 
-      return filteredList;
+      return promotion;
     }
     
     public static void Post(Promotion promotion)
@@ -53,7 +63,19 @@ public class Promotion
       
       ApiHelper.PostPromotion(jsonPromotion);
     }
+
+    public static void Put(Promotion editedPromotion)
+    {
+      string jsonPromotion = JsonConvert.SerializeObject(editedPromotion);
+      ApiHelper.Put(editedPromotion.PromotionId, jsonPromotion, "promotions");
+    }
+
+    public static void Delete(int id)
+    {
+      ApiHelper.Delete(id, "promotions");
+    }
   }
+
 
 
 
