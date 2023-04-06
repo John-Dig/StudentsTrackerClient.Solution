@@ -16,15 +16,15 @@
 </div>
 
 <div class="button-area">
-  <a href='@Url.Action("Index", "Coaches")'>
-    <button>Back to list</button>
-  </a>
   @if (User.Identity.IsAuthenticated) {
     
     @await Html.PartialAsync("EditCoachModal", @Model)
     <button onclick="showModal('edit-coach-modal')" class="yellow">Edit</button>
     
-    @await Html.PartialAsync("DeleteCoachModal", @Model, @ViewBag)
+    @await Html.PartialAsync("DeleteCoachModal", @Model)
     <button onclick="showModal('delete-coach-modal')" class="red">Delete</button>
   }
 </div>
+<a href='@Url.Action("Index", "Coaches")'>
+  <button>Back to list</button>
+</a>

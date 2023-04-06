@@ -17,7 +17,7 @@ namespace TrackerClient.Models
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:MMMM d, yyyy}", ApplyFormatInEditMode = false)]
     public DateTime DateEnrolled { get; set; }
-    public string BeltId { get; set; }
+    public int BeltId { get; set; }
 
     public static List<Student> GetStudents()
     {

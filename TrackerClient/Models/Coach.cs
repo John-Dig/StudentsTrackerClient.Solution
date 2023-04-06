@@ -12,7 +12,7 @@ namespace TrackerClient.Models
     public string LastN { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
-    public string BeltId { get; set; }
+    public int BeltId { get; set; }
 
     public static List<Coach> GetCoaches()
     {

@@ -20,12 +20,8 @@ public class StudentsController : Controller
     {
         List<Coach> coaches = Coach.GetCoaches();
         ViewBag.CoachId = new SelectList(coaches, "CoachId", "FirstN");
-
-             // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
-
         Student thisStudent = Student.GetDetails(id);
         return View(thisStudent);
-
     } 
 
     [HttpPost]
@@ -33,7 +29,7 @@ public class StudentsController : Controller
     {
 
         Student.Post(student);
-        return RedirectToAction("Index","Home");
+        return RedirectToAction("Index","Students");
     }
 
     [HttpPost]

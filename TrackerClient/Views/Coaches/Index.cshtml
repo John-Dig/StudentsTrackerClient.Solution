@@ -14,15 +14,13 @@
     <ul id="home-coach-list" class="coach-list">
     @foreach (Coach coach in Model)
         {
-            @if (int.Parse(coach.BeltId) >= 100)
-            {
-                <a href='@Url.Action("Details", "Coaches", new { id= @coach.CoachId })'>
-                    <div>
-                        <img src='@Url.Content("img/" + @coach.BeltId + ".jpg")' alt='@coach.BeltId' />
-                        @coach.FirstN @coach.LastN
-                    </div>
-                </a>
-            }
+            <a href='@Url.Action("Details", "Coaches", new { id= @coach.CoachId })'>
+                <div>
+                    <img src='@Url.Content("img/" + @coach.BeltId + ".jpg")' alt='@coach.BeltId' />
+                    @coach.FirstN @coach.LastN
+                </div>
+            </a>
+            
         }
     </ul>
 }

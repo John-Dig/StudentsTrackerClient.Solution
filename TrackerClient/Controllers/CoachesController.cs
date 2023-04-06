@@ -22,7 +22,7 @@ public class CoachesController : Controller
     public IActionResult Create(Coach coach)
     {
         Coach.Post(coach);
-        return RedirectToAction("Index","Home");
+        return RedirectToAction("Index","Coaches");
     }
 
     [HttpPost]

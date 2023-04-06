@@ -15,7 +15,7 @@
     <ul id="home-student-list" class="student-list">
     @foreach (Student student in Model)
         {
-            @if (int.Parse(student.BeltId) < 100) {
+            @if (student.BeltId < 100) {
                 <a href='@Url.Action("Details", "Students", new { id= @student.StudentId })'>
                     <div>
                         <img src='@Url.Content("img/" + @student.BeltId + ".png")' alt='@student.BeltId' />

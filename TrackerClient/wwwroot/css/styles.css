@@ -71,6 +71,13 @@ a {
   text-decoration: none;
 }
 
+header a {
+  color: #aaa;
+}
+header a:hover {
+  color: #aaa;
+}
+
 body {
   margin: 1.5rem;
   background-color: #34495E;
@@ -82,6 +89,10 @@ body {
   margin-right: auto;
   margin-top: 100px;
   overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(../img/background.jpg)
 }
 
 body::after {
@@ -107,6 +118,7 @@ button {
   padding: 1rem 2rem;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 input, select, textarea {
@@ -142,7 +154,7 @@ header {
 }
 
 header h1 {
-  color: #aaa;;
+  color: #aaa;
   border: 0;
   padding: 0;
   width: 50%;
@@ -453,4 +465,16 @@ form > .form-row, .info-row {
   margin: 1rem 0;
   border: 2px solid black;
   border-radius: var(--border-radius);
+}
+
+.student-list div,
+.coach-list div {
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
+  gap: 0.25rem;
+}
+
+.student-list img {
+  transition: all 300ms ease;
 }

@@ -26,9 +26,8 @@ public class PromotionsController : Controller
         Promotion.Post(newPromotion);
 
         Student studentToPromote = Student.GetDetails(studentId);
-        // studentToPromote.BeltId = int.Parse(studentToPromote.BeltId);
-
-        // Student.Put(studentToPromote);
+        studentToPromote.BeltId++;
+        Student.Put(studentToPromote);
 
         return RedirectToAction("Details", "Students", new { id = studentId });
     }

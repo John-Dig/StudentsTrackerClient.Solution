@@ -16,9 +16,6 @@
 </div>
 
 <div class="button-area">
-  <a href='@Url.Action("Index", "Students")'>
-    <button>Back to list</button>
-  </a>
   @if (User.Identity.IsAuthenticated) {
 
     @await Html.PartialAsync("EditStudentModal", @Model)
@@ -31,3 +28,6 @@
     <button onclick="showModal('delete-student-modal')" class="orange">Promote Student</button>
   }
 </div>
+  <a href='@Url.Action("Index", "Adults")'>
+    <button>Back to list</button>
+  </a>
