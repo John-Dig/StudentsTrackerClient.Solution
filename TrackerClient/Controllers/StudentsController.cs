@@ -19,7 +19,7 @@ public class StudentsController : Controller
     public IActionResult Details(int id)
     {
         List<Coach> coaches = Coach.GetCoaches();
-        ViewBag.Coaches = new SelectList(coaches, "CoachId", "FirstN");
+        ViewBag.CoachId = new SelectList(coaches, "CoachId", "FirstN");
 
              // ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Model");
 

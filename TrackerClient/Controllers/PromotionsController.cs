@@ -24,7 +24,13 @@ public class PromotionsController : Controller
     {
         Promotion newPromotion = new Promotion() { StudentId = studentId, CoachId = coachId, PromotionDate = promotionDate };
         Promotion.Post(newPromotion);
-        return RedirectToAction("Index", "Home");
+
+        Student studentToPromote = Student.GetDetails(studentId);
+        // studentToPromote.BeltId = int.Parse(studentToPromote.BeltId);
+
+        // Student.Put(studentToPromote);
+
+        return RedirectToAction("Details", "Students", new { id = studentId });
     }
 
     [HttpPost]
