@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model TrackerClient.Models.Student
+
+<h2>Details for Student @Model.FirstN @Model.LastN</h2>
+
+<div class="details-list">
+  <div>@Html.LabelFor(model => model.StudentId, "ID"): @Html.DisplayFor(model => model.StudentId)</div>
+  <div>@Html.LabelFor(model => model.FirstN, "First Name"): @Html.DisplayFor(model => model.FirstN)</div>
+  <div>@Html.LabelFor(model => model.LastN, "Last Name"): @Html.DisplayFor(model => model.LastN)</div>
+  <div>@Html.LabelFor(model => model.Email): @Html.DisplayFor(model => model.Email)</div>
+  <div>@Html.LabelFor(model => model.BeltId, "Belt ID"): @Html.DisplayFor(model => model.BeltId)</div>
+  <div>@Html.LabelFor(model => model.DateEnrolled, "Date Enrolled"): @Html.DisplayFor(model => model.DateEnrolled)</div>
+</div>
+
+<div class="button-area">
+  <a href='@Url.Action("Index", "Students")'>
+    <button>Back to list</button>
+  </a>
+  @if (User.Identity.IsAuthenticated) {
+
+    @await Html.PartialAsync("EditStudentModal", @Model)
+    <button onclick="showModal('edit-student-modal')" class="yellow">Edit</button>
+
+     @await Html.PartialAsync("DeleteStudentModal", @Model)
+    <button onclick="showModal('delete-student-modal')" class="red">Delete</button>
+
+     @await Html.PartialAsync("DeleteStudentModal", @Model)
+    <button onclick="showModal('delete-student-modal')" class="orange">Promote Student</button>
+  }
+</div>
